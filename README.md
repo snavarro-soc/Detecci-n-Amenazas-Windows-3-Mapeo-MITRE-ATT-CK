@@ -1,7 +1,7 @@
 # Detección de Amenazas en Windows: (Sysmon e Event ID) 
 
 ## 🟢 INFORME SOC: DETECCIÓN DE AMENAZAS EN WINDOWS
-### 🔵 Análisis Forense de un caso de Ataque Simulado, realizado en los laboratorios prácticos de TryHackMe y pertenecientes a los módulos **Windows Threat Detection 1 y 3** de la Ruta SOC L1. En esta investigación se analiza la telemetría de eventos en Windows utilizando Sysmon e Event ID para Detectar y reconstruir la línea de los actores de Amenaza.
+### 🔵 Análisis Forense de un caso de Ataque Simulado, realizado en los laboratorios prácticos de TryHackMe y pertenecientes a los módulos **Windows Threat Detection 1 y 3** de la Ruta SOC L1. En esta investigación se analiza la telemetría de eventos en Windows utilizando Sysmon e Event ID para Detectar de forma rápida y directa las huellas del atacante.
 
 * **ANALISTA RESPONSABLE:** Sebastián Navarro M.
 * **ENTORNO UTILIZADO:** Laboratorios de TryHackMe - Ruta SOC L1 - Windows Threat Detection 1 y 3
