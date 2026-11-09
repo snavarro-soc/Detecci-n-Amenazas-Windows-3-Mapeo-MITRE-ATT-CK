@@ -20,11 +20,11 @@
 
 ## 🟢 Introducción y Contexto del Laboratorio
 
-Como Analista SOC, el objetivo principal de este proyecto fue investigar y documentar de extremo a extremo un incidente de seguridad simulado a partir de logs de Windows y Sysmon. A través del análisis de telemetría, correlación de eventos y la reconstrucción de la línea de tiempo, se identificó la secuencia completa del ataque: desde el acceso inicial por fuerza bruta (RDP) y la creación de persistencia local, hasta la ejecución de cargas útiles y la confirmación de tráfico de Comando y Control (C2). Este trabajo refleja la aplicación rigurosa de metodologías de triaje, caza de amenazas (Threat Hunting) y la entrega eficiente de las medidas de mitigación y acción para contener el impacto. 
+Este informe detalla técnicas de detección forense para analizar un incidente de seguridad en un Soc, utilizando la telemetría de eventos en Windows con Sysmon y el filtrado de eventos para reconocer de forma rapida y directa las diferentes etapas de un ataque. el objetivo de este proyecto es fijar el conocimiento aprendido en los laboratorios de TryHackme, iniciando por la simulación de una alerta de posible ataque de fuerza bruta RDP pasando desde la elevación de privilegios, hasta la persistencia avanzada a nivel de servicios/tareas programadas y la validación de tráfico hacia una infraestructura C2, asociando cada paso con su número de identificación MITRE ATT&CK
 
 
 ---
-## 🟢 Fase 1: Ataque de Fuerza Bruta y Acceso Inicial (Initial Access)-T1110 (Brute Force) y T1078 (Valid Accounts)
+## 🟢 Fase 1: Ataque de Fuerza Bruta y Acceso Inicial (Initial Access) — T1110.001 & T1078
 
 ### Análisis Técnico
 Para dar inicio a esta primera fase, simulé recibir una alerta por una ráfaga de inicios de sesión fallidos. Utilicé los registros proporcionados en el archivo **`Security.evtx`** de **Windows Threat Detection**
@@ -48,7 +48,7 @@ Esta ráfaga constante y la frecuencia rápida de estos eventos me confirmaron q
 
 ---
 
-## 🟢 Fase 2: Persistencia Inicial y Elevación de Privilegios -T1136.001 (Create Account) y T1078.003 (Local Accounts)
+## 🟢 Fase 2: Persistencia Inicial y Elevación de Privilegios — T1136.001 & T1078.003
 
 ### Análisis Técnico
 Una vez que el atacante estuvo dentro del sistema mediante **RDP** con la cuenta <font color="#00FF66"><b>Administrator</b></font>, su siguiente movimiento lógico era asegurar una vía de acceso secundaria. Como analista, sé que los atacantes prevén que la contraseña del administrador principal pueda ser cambiada o su sesión revocada. Por lo tanto, mi hipótesis fue que el atacante crearía una cuenta local de respaldo durante esa misma sesión interactiva.
@@ -71,7 +71,7 @@ Sin embargo, una cuenta estándar no le serviría de mucho para controlar el ser
 
 ---
 
-## 🟢 Fase 3: Entrega de Carga Útil (Payload Delivery)-T1566 (Phishing / Spearphishing Attachment) (o doble extensión)
+## 🟢 Fase 3: Entrega de Carga Útil (Payload Delivery) — T1566
 
 ### Análisis Técnico
 Con la persistencia de usuario garantizada, la investigación debía determinar qué herramientas o malware ingresó el atacante al servidor para comenzar a operar. Para este análisis de comportamiento en la máquina, correlacioné la línea de tiempo cambiando a la telemetría de <font color="#00FF66"><b>Sysmon</b></font> en el laboratorio **Windows Threat Detection 3**.
@@ -91,7 +91,7 @@ La estructura del nombre presentó de inmediato una anomalía: el uso de una dob
 
 ---
 
-## 🟢 Fase 4: Persistencia Avanzada (Advanced Persistence)-T1543.003 (Create or Modify System Process: Windows Service) y T1053.005 (Scheduled Task)
+## 🟢 Fase 4: Persistencia Avanzada (Advanced Persistence) — T1543.003 & T1053.005
 
 ### Análisis Técnico
 Entendiendo la psicología del atacante, una cuenta de usuario alternativa no es suficiente garantía: si el servidor se reinicia o el equipo de SOC detecta al usuario <font color="#00FF66"><b>support</b></font>, el atacante pierde el acceso. Por lo tanto, el atacante necesita mecanismos que ejecuten su malware de forma automática sin depender de que un usuario inicie sesión. Para rastrear estos mecanismos invisibles, volví a auditar los registros del sistema en <font color="#00FF66"><b>Security.evtx</b></font>.
@@ -114,7 +114,7 @@ En segundo lugar, asumiendo que un atacante precavido establece capas de redunda
 
 ---
 
-## 🟢 Fase 5: Comando y Control (C2 - Command & Control)-T1071 (Application Layer Protocol) / T1041
+## 🟢 Fase 5: Comando y Control (C2) — T1071
 
 ### Análisis Técnico
 En esta fase del análisis, mi objetivo fue verificar si los mecanismos de persistencia creados funcionaron tras un reinicio del sistema y cómo el malware establecía comunicación con el exterior. Para evaluar la actividad a nivel de procesos y red, volví a consultar los registros de <font color="#00FF66"><b>Sysmon</b></font>.
@@ -151,7 +151,7 @@ Tabla de referencias cruzadas con los artefactos técnicos y registros auditados
 | **C2 / Exfil** | Consultas DNS salientes hacia el dominio/IP del atacante | Sysmon 🔵 ID <font color="#00FF66"><b>22</b></font> |
 ---
 
-## 🟢 Fase 7: Mitigación y Cierre del caso
+## 🟢 Fase 7: Mitigación y Cierre 
 
 ### Acciones de Erradicación Inmediata
 1. **Aislamiento de Red:** Desconectar inmediatamente la máquina afectada de la red corporativa para contener el tráfico de comunicación hacia la infraestructura C2 y prevenir un movimiento lateral.
