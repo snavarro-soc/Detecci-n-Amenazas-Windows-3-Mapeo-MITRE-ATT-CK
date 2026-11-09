@@ -10,7 +10,7 @@
 ---
 > 🎥 **PUEDES VER LA DEMOSTRACIÓN TÉCNICA EN VIDEO DESDE LA PLATAFORMA "YOUTUBE" (WALKTHROUGH)**
 > 
-> Para una revisión rápida del caso de estudio, puedes acceder directamente a las investigaciones guiadas en video divididas por fases operacionales:
+> Para una revisión rápida del caso, puedes acceder directamente a los enlaces aqui abajo:
 > 
 > * 🎬 **Parte 1 — Acceso Inicial y Fuerza Bruta:** [Ver demostración en video](https://youtu.be/u73xHZCO7q4?si=oGLL1fqvZIY3KYRv)) *(Análisis de Fuerza Bruta RDP y Carga de Payload)*
 > * 🎬 **Parte 2 — Delivery y Persistencia:** [Ver demostración en video](https://youtu.be/YQrtuD7Sxvo?si=hVJra0GWplHGuUwE)) *(Detección de Cuenta Trampa, Servicios y Tareas Programadas)*
