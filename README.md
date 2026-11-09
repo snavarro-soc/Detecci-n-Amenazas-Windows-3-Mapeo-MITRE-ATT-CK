@@ -1,15 +1,14 @@
-# Detección de Amenazas en Windows 3: (Mapeo a Mitre ATT&CK) 
-**Análisis forense basado en el ciclo de vida del adversario.** Investigación respaldada en los laboratorios prácticos del módulo **Windows Threat Detection 3** de **TryHackMe**, evaluando la telemetría de `Sysmon.evtx` y `Security.evtx` para reconstruir la línea de tiempo de un ataque real.
+# Detección de Amenazas en Windows: (Sysmon e Event ID) 
 
 ## 🟢 INFORME SOC: DETECCIÓN DE AMENAZAS EN WINDOWS
-### 🔵 Análisis Forense basado en el Ciclo de Vida del Adversario (Cyber Kill Chain)
+### 🔵 Análisis Forense de un caso de Ataque Simulado, compuesto en los laboratorios prácticos de TryHackMe pertenecientes al módulo **Windows Threat Detection 1 y 3** . En esta investigación se analiza la telemetría de eventos en Windows utilizando Sysmon e Event ID para Detectar y reconstruir la línea de los actores de Amenaza.
 
 * **ANALISTA RESPONSABLE:** Sebastián Navarro M.
-* **ENTORNO EVALUADO:** TryHackMe - Windows Threat Detection 3
+* **ENTORNO UTILIZADO:** Laboratorios de TryHackMe - Ruta SOC L1 - Windows Threat Detection 1 y 3
 * **REGISTROS ANALIZADOS:** `Sysmon.evtx` & `Security.evtx`
 
 ---
-> 🎥 **DEMOSTRACIÓN TÉCNICA EN VIDEO (WALKTHROUGH)**
+> 🎥 **PUEDES VER LA DEMOSTRACIÓN TÉCNICA EN VIDEO EN LA PLATAFORMA "YOUTUBE" (WALKTHROUGH)**
 > 
 > Para una revisión rápida del caso de estudio, puedes acceder directamente a las investigaciones guiadas en video divididas por fases operacionales:
 > 
