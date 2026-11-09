@@ -48,7 +48,7 @@ Esta ráfaga constante y la frecuencia rápida de estos eventos me confirmaron q
 
 ---
 
-## 🟢 Fase 2: Persistencia Inicial y Elevación de Privilegios -T1136 (Create Account) y T1078.003 (Local Accounts)
+## 🟢 Fase 2: Persistencia Inicial y Elevación de Privilegios -T1136.001 (Create Account) y T1078.003 (Local Accounts)
 
 ### Análisis Técnico
 Una vez que el atacante estuvo dentro del sistema mediante **RDP** con la cuenta <font color="#00FF66"><b>Administrator</b></font>, su siguiente movimiento lógico era asegurar una vía de acceso secundaria. Como analista, sé que los atacantes prevén que la contraseña del administrador principal pueda ser cambiada o su sesión revocada. Por lo tanto, mi hipótesis fue que el atacante crearía una cuenta local de respaldo durante esa misma sesión interactiva.
