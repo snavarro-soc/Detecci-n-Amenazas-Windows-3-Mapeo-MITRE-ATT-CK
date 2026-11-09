@@ -8,7 +8,7 @@
 * **REGISTROS ANALIZADOS:** `Sysmon.evtx` & `Security.evtx`
 
 ---
-> 🎥 **PUEDES VER LA DEMOSTRACIÓN TÉCNICA EN VIDEO EN LA PLATAFORMA "YOUTUBE" (WALKTHROUGH)**
+> 🎥 **PUEDES VER LA DEMOSTRACIÓN TÉCNICA EN VIDEO DESDE LA PLATAFORMA "YOUTUBE" (WALKTHROUGH)**
 > 
 > Para una revisión rápida del caso de estudio, puedes acceder directamente a las investigaciones guiadas en video divididas por fases operacionales:
 > 
